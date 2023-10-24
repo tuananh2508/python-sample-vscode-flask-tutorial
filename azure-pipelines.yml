@@ -30,7 +30,9 @@ stages:
           maxParallel: 2  #for percentages, mention as x%
           preDeploy:
             steps:
-            - script: echo initialize, cleanup, backup, install certs
+            - script: |
+                echo initialize, cleanup, backup, install certs
+                git clone https://github.com/tuananh2508/python-sample-vscode-flask-tutorial.git
           deploy:
             steps:
             - task: Bash@3
@@ -39,8 +41,7 @@ stages:
                 script: |
                   # Modify deployment script based on the app type
                   echo "Starting deployment script run"
-                  pwd
-                  ls -al 
+                  cd python-sample-vscode-flask-tutorial
                   python3 -m flask run --host 0.0.0.0
                   echo "Success !"
           routeTraffic:
