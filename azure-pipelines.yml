@@ -43,7 +43,7 @@ stages:
                   # Modify deployment script based on the app type
                   echo "Starting deployment script run"
                   cd python-sample-vscode-flask-tutorial
-                  ls -al
+                  export set FLASK_APP=hello_app.webapp
                   python3 -m flask run --host 0.0.0.0
                   echo "Success !"
 
