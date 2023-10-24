@@ -39,7 +39,7 @@ stages:
                 script: |
                   # Modify deployment script based on the app type
                   echo "Starting deployment script run"
-                  ls 
+                  ls -al 
                   python3 -m flask run --host 0.0.0.0
                   echo "Success !"
           routeTraffic:
