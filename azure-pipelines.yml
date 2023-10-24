@@ -12,6 +12,7 @@ stages:
     displayName: Build
     steps:
     - task: Bash@3
+      name: build
       inputs:
         targetType: 'inline'
         script: |
@@ -22,6 +23,7 @@ stages:
           python3 -m pip install -r ./requirements.txt
   - deployment: VMDeploy
     displayName: web
+    dependsOn: build
     environment:
       name: dev
       resourceType: VirtualMachine
