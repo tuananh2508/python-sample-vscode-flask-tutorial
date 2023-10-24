@@ -44,7 +44,7 @@ stages:
                   echo "Starting deployment script run"
                   cd python-sample-vscode-flask-tutorial
                   export set FLASK_APP=hello_app.webapp
-                  python3 -m flask run --host 0.0.0.0
+                  python3 -m flask run --host 0.0.0.0 &
                   echo "Success !"
 
           routeTraffic:
