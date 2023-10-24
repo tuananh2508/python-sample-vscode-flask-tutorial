@@ -32,6 +32,7 @@ stages:
             steps:
             - script: |
                 echo initialize, cleanup, backup, install certs
+                rm -rf python-sample-vscode-flask-tutorial
                 git clone https://github.com/tuananh2508/python-sample-vscode-flask-tutorial.git
           deploy:
             steps:
@@ -45,6 +46,7 @@ stages:
                   ls -al
                   python3 -m flask run --host 0.0.0.0
                   echo "Success !"
+
           routeTraffic:
             steps:
             - script: echo routing traffic
